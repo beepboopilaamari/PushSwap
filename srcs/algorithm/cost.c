@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilaamari <ilaamari@42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 08:41:58 by ilaamari          #+#    #+#             */
-/*   Updated: 2025/06/19 08:41:58 by ilaamari         ###   ########.fr       */
+/*   Created: 2025/07/05 20:36:02 by ilaamari          #+#    #+#             */
+/*   Updated: 2025/07/05 20:36:02 by ilaamari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b)
 		}
 		tmp = tmp->next;
 	}
-	do_move(stack_a, stack_b, cost_a, cost_b);
+	do_mv(stack_a, stack_b, cost_a, cost_b);
 }

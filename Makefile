@@ -1,36 +1,59 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ilaamari <ilaamari@42nice.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/07/05 20:36:42 by ilaamari          #+#    #+#              #
+#    Updated: 2025/07/05 20:36:42 by ilaamari         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+INCLUDES = -I includes
+
+SRCS_DIR = srcs
+OBJS_DIR = objs
 
 SRCS = main.c \
-       turkish_algorithm.c \
-       cost.c \
-       position.c \
-       do_move.c \
-       sort_three.c \
-       operations1.c \
-       operations2.c \
-       operations3.c \
-       stack_utils.c \
-       utils.c \
-       input_check.c
+       sorting.c \
+       parsing/parsing.c \
+       parsing/input_check.c \
+       operations/swap.c \
+       operations/push.c \
+       operations/rotate.c \
+       operations/reverse.c \
+       algorithm/turkish_sort.c \
+       algorithm/sort_three.c \
+       algorithm/cost.c \
+       algorithm/position.c \
+       algorithm/do_mv.c \
+       utils/stack_utils.c \
+       utils/utils.c \
+       utils/string_utils.c \
+       utils/ft_split.c
 
-OBJS = $(SRCS:.c=.o)
+SRCS_PATH = $(addprefix $(SRCS_DIR)/, $(SRCS))
+OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(OBJS)
 
-%.o: %.c push_swap.h
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@rm -rf $(OBJS_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilaamari <ilaamari@42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 08:43:33 by ilaamari          #+#    #+#             */
-/*   Updated: 2025/06/19 08:43:33 by ilaamari         ###   ########.fr       */
+/*   Created: 2025/07/05 20:34:12 by ilaamari          #+#    #+#             */
+/*   Updated: 2025/07/05 20:34:12 by ilaamari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,20 @@ t_stack	*stack_new(int value)
 	return (new);
 }
 
-void	stack_add_bottom(t_stack **stack, t_stack *new)
+int	stack_add_bottom(t_stack **stack, t_stack *new)
 {
 	t_stack	*last;
 
 	if (!new)
-		return ;
+		return (0);
 	if (!*stack)
 	{
 		*stack = new;
-		return ;
+		return (1);
 	}
 	last = stack_last(*stack);
 	last->next = new;
+	return (1);
 }
 
 int	stack_size(t_stack *stack)

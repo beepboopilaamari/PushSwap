@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilaamari <ilaamari@42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 08:43:59 by ilaamari          #+#    #+#             */
-/*   Updated: 2025/06/19 08:43:59 by ilaamari         ###   ########.fr       */
+/*   Created: 2025/07/05 20:33:05 by ilaamari          #+#    #+#             */
+/*   Updated: 2025/07/05 20:33:05 by ilaamari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_number(char *str)
 		return (0);
 	while (str[i])
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (!ft_isdigit(str[i]))
 			return (0);
 		i++;
 	}
@@ -48,31 +48,6 @@ int	has_duplicates(t_stack *stack)
 		tmp = tmp->next;
 	}
 	return (0);
-}
-
-static long	ft_atoi(const char *str)
-{
-	long	result;
-	int		sign;
-	int		i;
-
-	result = 0;
-	sign = 1;
-	i = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (result * sign);
 }
 
 void	assign_index(t_stack *stack_a, int stack_size)
@@ -101,25 +76,4 @@ void	assign_index(t_stack *stack_a, int stack_size)
 			highest->index = stack_size;
 		stack_size--;
 	}
-}
-
-t_stack	*fill_stack_values(int argc, char **argv)
-{
-	t_stack	*stack_a;
-	long	nb;
-	int		i;
-
-	stack_a = NULL;
-	i = 1;
-	while (i < argc)
-	{
-		if (!is_number(argv[i]))
-			return (free_stack(&stack_a), NULL);
-		nb = ft_atoi(argv[i]);
-		if (nb > INT_MAX || nb < INT_MIN)
-			return (free_stack(&stack_a), NULL);
-		stack_add_bottom(&stack_a, stack_new((int)nb));
-		i++;
-	}
-	return (stack_a);
 }

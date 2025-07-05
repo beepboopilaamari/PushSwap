@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations1.c                                      :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilaamari <ilaamari@42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 08:43:07 by ilaamari          #+#    #+#             */
-/*   Updated: 2025/06/19 08:43:07 by ilaamari         ###   ########.fr       */
+/*   Created: 2025/07/05 20:34:46 by ilaamari          #+#    #+#             */
+/*   Updated: 2025/07/05 20:34:46 by ilaamari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sa(t_stack **stack_a)
 	*stack_a = (*stack_a)->next;
 	tmp->next = (*stack_a)->next;
 	(*stack_a)->next = tmp;
-	write(1, "sa\n", 3);
+	ft_putstr("sa\n");
 }
 
 void	sb(t_stack **stack_b)
@@ -35,7 +35,7 @@ void	sb(t_stack **stack_b)
 	*stack_b = (*stack_b)->next;
 	tmp->next = (*stack_b)->next;
 	(*stack_b)->next = tmp;
-	write(1, "sb\n", 3);
+	ft_putstr("sb\n");
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
@@ -56,31 +56,5 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 		tmp->next = (*stack_b)->next;
 		(*stack_b)->next = tmp;
 	}
-	write(1, "ss\n", 3);
-}
-
-void	pa(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*tmp;
-
-	if (!*stack_b)
-		return ;
-	tmp = *stack_b;
-	*stack_b = (*stack_b)->next;
-	tmp->next = *stack_a;
-	*stack_a = tmp;
-	write(1, "pa\n", 3);
-}
-
-void	pb(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*tmp;
-
-	if (!*stack_a)
-		return ;
-	tmp = *stack_a;
-	*stack_a = (*stack_a)->next;
-	tmp->next = *stack_b;
-	*stack_b = tmp;
-	write(1, "pb\n", 3);
+	ft_putstr("ss\n");
 }

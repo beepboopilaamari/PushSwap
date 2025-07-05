@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_move.c                                          :+:      :+:    :+:   */
+/*   do_mv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilaamari <ilaamari@42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 08:42:32 by ilaamari          #+#    #+#             */
-/*   Updated: 2025/06/19 08:42:32 by ilaamari         ###   ########.fr       */
+/*   Created: 2025/07/05 20:36:30 by ilaamari          #+#    #+#             */
+/*   Updated: 2025/07/05 20:36:30 by ilaamari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static void	do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 	}
 }
 
-static void	do_rev_rota_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
+static void	do_rev_rotate_both(t_stack **a, t_stack **b, int *cost_a,
+		int *cost_b)
 {
 	while (*cost_a < 0 && *cost_b < 0)
 	{
@@ -66,12 +67,12 @@ static void	do_rotate_b(t_stack **b, int *cost)
 	}
 }
 
-void	do_move(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b)
+void	do_mv(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b)
 {
 	if (cost_a > 0 && cost_b > 0)
 		do_rotate_both(stack_a, stack_b, &cost_a, &cost_b);
 	else if (cost_a < 0 && cost_b < 0)
-		do_rev_rota_both(stack_a, stack_b, &cost_a, &cost_b);
+		do_rev_rotate_both(stack_a, stack_b, &cost_a, &cost_b);
 	do_rotate_a(stack_a, &cost_a);
 	do_rotate_b(stack_b, &cost_b);
 	pa(stack_a, stack_b);

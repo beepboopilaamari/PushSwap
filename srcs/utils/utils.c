@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilaamari <ilaamari@42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 08:43:42 by ilaamari          #+#    #+#             */
-/*   Updated: 2025/06/19 08:43:42 by ilaamari         ###   ########.fr       */
+/*   Created: 2025/07/05 20:34:25 by ilaamari          #+#    #+#             */
+/*   Updated: 2025/07/05 20:34:25 by ilaamari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,19 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	exit_error(t_stack **stack_a, t_stack **stack_b)
+void	free_split_array(char **arr)
 {
-	if (stack_a)
-		free_stack(stack_a);
-	if (stack_b)
-		free_stack(stack_b);
-	write(2, "Error\n", 6);
-	exit(1);
+	int	i;
+
+	i = 0;
+	if (!arr)
+		return ;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
 
 int	abs_value(int n)

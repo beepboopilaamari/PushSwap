@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilaamari <ilaamari@42nice.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 08:41:19 by ilaamari          #+#    #+#             */
-/*   Updated: 2025/06/19 08:41:19 by ilaamari         ###   ########.fr       */
+/*   Created: 2025/07/05 20:32:23 by ilaamari          #+#    #+#             */
+/*   Updated: 2025/07/05 20:32:23 by ilaamari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,4 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 		sort_three(stack_a);
 	else if (size_a > 3 && !is_sorted(*stack_a))
 		turkish_sort(stack_a, stack_b);
-}
-
-int	main(int argc, char **argv)
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-
-	if (argc < 2)
-		return (0);
-	stack_b = NULL;
-	stack_a = fill_stack_values(argc, argv);
-	if (!stack_a || has_duplicates(stack_a))
-	{
-		free_stack(&stack_a);
-		write(2, "Error\n", 6);
-		return (1);
-	}
-	assign_index(stack_a, stack_size(stack_a));
-	push_swap(&stack_a, &stack_b);
-	free_stack(&stack_a);
-	free_stack(&stack_b);
-	return (0);
 }
