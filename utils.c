@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-/* Free the entire stack */
 void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
@@ -28,7 +27,6 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-/* Exit with error message */
 void	exit_error(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a)
@@ -39,7 +37,6 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	exit(1);
 }
 
-/* Get absolute value */
 int	abs_value(int n)
 {
 	if (n < 0)
@@ -47,7 +44,6 @@ int	abs_value(int n)
 	return (n);
 }
 
-/* Find the highest index in the stack */
 int	find_highest_index(t_stack *stack)
 {
 	int	highest;
@@ -62,7 +58,6 @@ int	find_highest_index(t_stack *stack)
 	return (highest);
 }
 
-/* Find position of the element with the lowest index */
 int	find_lowest_index_position(t_stack **stack)
 {
 	t_stack	*tmp;

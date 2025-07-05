@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-/* Swap first two elements of stack A */
 void	sa(t_stack **stack_a)
 {
 	t_stack	*tmp;
@@ -26,7 +25,6 @@ void	sa(t_stack **stack_a)
 	write(1, "sa\n", 3);
 }
 
-/* Swap first two elements of stack B */
 void	sb(t_stack **stack_b)
 {
 	t_stack	*tmp;
@@ -40,7 +38,6 @@ void	sb(t_stack **stack_b)
 	write(1, "sb\n", 3);
 }
 
-/* sa and sb at the same time */
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;
@@ -62,7 +59,6 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 	write(1, "ss\n", 3);
 }
 
-/* Take the first element from B and put it at the top of A */
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;
@@ -76,7 +72,6 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	write(1, "pa\n", 3);
 }
 
-/* Take the first element from A and put it at the top of B */
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;

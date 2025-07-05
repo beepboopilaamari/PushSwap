@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-/* Check if string is a valid number */
 int	is_number(char *str)
 {
 	int	i;
@@ -31,7 +30,6 @@ int	is_number(char *str)
 	return (1);
 }
 
-/* Check for duplicate values in the stack */
 int	has_duplicates(t_stack *stack)
 {
 	t_stack	*tmp;
@@ -52,7 +50,6 @@ int	has_duplicates(t_stack *stack)
 	return (0);
 }
 
-/* Simple atoi for parsing integers */
 static long	ft_atoi(const char *str)
 {
 	long	result;
@@ -78,7 +75,6 @@ static long	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-/* Assign index to each element based on its value (smallest = 1) */
 void	assign_index(t_stack *stack_a, int stack_size)
 {
 	t_stack	*tmp;
@@ -107,7 +103,6 @@ void	assign_index(t_stack *stack_a, int stack_size)
 	}
 }
 
-/* Parse arguments and create the stack */
 t_stack	*fill_stack_values(int argc, char **argv)
 {
 	t_stack	*stack_a;

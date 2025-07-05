@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-/* Push all but 3 elements to B, keeping B sorted in descending order */
 static void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 {
 	int	size;
@@ -40,7 +39,6 @@ static void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-/* Shift stack A until the element at the top has the lowest index */
 static void	shift_stack(t_stack **stack_a)
 {
 	int	lowest_pos;

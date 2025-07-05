@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-/* Assign a position to each element of the stack (0 at the top) */
 void	get_position(t_stack **stack)
 {
 	t_stack	*tmp;
@@ -28,7 +27,6 @@ void	get_position(t_stack **stack)
 	}
 }
 
-/* Find the best target position in A for each element in B */
 static int	get_t(t_stack **stack_a, int b_idx, int target_idx, int target_pos)
 {
 	t_stack	*tmp_a;

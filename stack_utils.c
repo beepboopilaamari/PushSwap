@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-/* Create a new stack element */
 t_stack	*stack_new(int value)
 {
 	t_stack	*new;
@@ -30,7 +29,6 @@ t_stack	*stack_new(int value)
 	return (new);
 }
 
-/* Add element to the bottom of the stack */
 void	stack_add_bottom(t_stack **stack, t_stack *new)
 {
 	t_stack	*last;
@@ -46,7 +44,6 @@ void	stack_add_bottom(t_stack **stack, t_stack *new)
 	last->next = new;
 }
 
-/* Get the size of the stack */
 int	stack_size(t_stack *stack)
 {
 	int	size;
@@ -60,7 +57,6 @@ int	stack_size(t_stack *stack)
 	return (size);
 }
 
-/* Get the last element of the stack */
 t_stack	*stack_last(t_stack *stack)
 {
 	while (stack && stack->next)
@@ -68,7 +64,6 @@ t_stack	*stack_last(t_stack *stack)
 	return (stack);
 }
 
-/* Get the element before the last one */
 t_stack	*stack_before_last(t_stack *stack)
 {
 	while (stack && stack->next && stack->next->next)

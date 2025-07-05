@@ -19,12 +19,12 @@
 
 typedef struct s_stack
 {
-	int				value;
-	int				index;
-	int				pos;
-	int				target_pos;
-	int				cost_a;
-	int				cost_b;
+	int				value;	// The actual number
+	int				index;	// Rank (1=smallest, n=largest)
+	int				pos;	// Current position in stack
+	int				target_pos;	// Where it should go in the other stack
+	int				cost_a;	// Cost to rotate stack A
+	int				cost_b;	// Cost to rotate stack B
 	struct s_stack	*next;
 }	t_stack;
 

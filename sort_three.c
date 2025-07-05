@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-/* Find the position of the highest index in the stack */
 static int	find_highest_index_position(t_stack *stack)
 {
 	int		highest_index;
@@ -32,7 +31,6 @@ static int	find_highest_index_position(t_stack *stack)
 	return (position);
 }
 
-/* Sort a stack of 3 numbers with max 2 moves */
 void	sort_three(t_stack **stack)
 {
 	int	highest_pos;

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-/* Rotate both stacks in the same direction */
+
 static void	do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 {
 	while (*cost_a > 0 && *cost_b > 0)
@@ -23,7 +23,6 @@ static void	do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 	}
 }
 
-/* Reverse rotate both stacks in the same direction */
 static void	do_rev_rota_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 {
 	while (*cost_a < 0 && *cost_b < 0)
@@ -34,7 +33,6 @@ static void	do_rev_rota_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 	}
 }
 
-/* Rotate stack A until it reaches the target position */
 static void	do_rotate_a(t_stack **a, int *cost)
 {
 	while (*cost)
@@ -52,7 +50,6 @@ static void	do_rotate_a(t_stack **a, int *cost)
 	}
 }
 
-/* Rotate stack B until it reaches position 0 */
 static void	do_rotate_b(t_stack **b, int *cost)
 {
 	while (*cost)
@@ -70,7 +67,6 @@ static void	do_rotate_b(t_stack **b, int *cost)
 	}
 }
 
-/* Execute the move to get B element to its target position in A */
 void	do_move(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b)
 {
 	if (cost_a > 0 && cost_b > 0)
